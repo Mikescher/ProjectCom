@@ -5,27 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<RelativeLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="samdev.de.ProjectCom.MainActivity"
-    >
-
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar"/>
 
 
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</RelativeLayout>
-    <fragment
-        android:id="@+id/fragment_navigation_drawer"
-        android:layout_width="@dimen/nav_drawer_width"
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar"/>
+     </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/main_drawer"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:layout="@layout/fragment_navigation_drawer"
-        android:name="samdev.de.projectcom.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" />
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/menu_drawer"
+        />
 
 </android.support.v4.widget.DrawerLayout>

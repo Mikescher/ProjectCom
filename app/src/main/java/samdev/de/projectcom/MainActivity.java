@@ -1,11 +1,12 @@
 package samdev.de.projectcom;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
+import android.content.res.Configuration;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,10 @@ import android.view.MenuItem;
 public class MainActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
+    private NavigationView mDrawer;
+    private DrawerLayout mDrawerlayout;
+    ActionBarDrawerToggle mDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +29,12 @@ public class MainActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        NavigationDrawerFragment drawerFragment =
-                (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout), toolbar);
+        mDrawer = (NavigationView) findViewById(R.id.main_drawer);
+        mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerlayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+
+        mDrawerlayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
 
     }
 
@@ -50,5 +58,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 }
