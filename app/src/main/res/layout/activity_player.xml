@@ -1,9 +1,10 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="samdev.de.projectcom.activitys.PlayerActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="samdev.de.projectcom.activitys.PlayerActivity"
+    android:id="@+id/root_activity_player">
 
     <include
         android:id="@+id/app_bar"
@@ -22,5 +23,17 @@
          android:layout_alignParentEnd="true"
          android:textSize="40dp"
          />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabplayer"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_add_white_36dp"
+        app:borderWidth="6dp"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorPrimaryDark"
+        android:layout_margin="12dp" />
 
 </RelativeLayout>
