@@ -10,6 +10,19 @@
         android:id="@+id/app_bar"
         layout="@layout/app_bar"/>
 
+    <ListView
+        android:id="@+id/list_player"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/colorDivider"
+        android:dividerHeight="10dp"
+        android:drawSelectorOnTop="true"
+        android:footerDividersEnabled="false"
+        android:padding="10dp"
+        android:layout_below="@+id/app_bar"
+        android:scrollbarStyle="outsideOverlay" >
+    </ListView>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabplayer"

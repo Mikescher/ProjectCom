@@ -1,4 +1,4 @@
-package samdev.de.projectcom;
+package samdev.de.projectcom.activitys;
 
 
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import samdev.de.projectcom.R;
 import samdev.de.projectcom.activitys.PlayerActivity;
 
 
