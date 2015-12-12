@@ -17,4 +17,8 @@
     <!--PlayerActivity-->
     <string name="title_activity_player">Spieler ID`s </string>
     <string name="addPlayer">Spieler Ids</string>
+    <string name="alertplayertitle">Spieler Id eingeben</string>
+    <string name="alertbuttonok">OK</string>
+    <string name="alertbuttoncancel">Abbrechen</string>
+    <string name="alertplayeradd">test</string>
 </resources>

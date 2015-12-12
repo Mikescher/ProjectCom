@@ -1,5 +1,8 @@
 package samdev.de.projectcom.activitys;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -14,9 +17,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import samdev.de.projectcom.R;
@@ -49,8 +54,29 @@ public class PlayerActivity extends AppCompatActivity {
 
     private View.OnClickListener mFabClickListener = new View.OnClickListener(){
         public void onClick(View v){
-            Snackbar.make(mRoot, "Player FAB Clicked", Snackbar.LENGTH_LONG)
-                    .show();
+            View view = (LayoutInflater.from(PlayerActivity.this)).inflate(R.layout.player_input, null);
+
+            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(PlayerActivity.this);
+            alertBuilder.setView(view);
+            final EditText userInput = (EditText) view.findViewById(R.id.input_playerid);
+
+            alertBuilder.setTitle(R.string.alertplayertitle);
+            alertBuilder.setCancelable(true)
+                    .setPositiveButton(R.string.alertbuttonok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String mUserInput =userInput.getText().toString();
+
+                            Snackbar.make(mRoot,mUserInput + " hinzugefügt", Snackbar.LENGTH_LONG)
+                                    .show();
+
+                        }
+
+                    })
+                    .setNegativeButton(R.string.alertbuttoncancel, null);
+
+            Dialog dialog = alertBuilder.create();
+            dialog.show();
         }
     };
     @Override
