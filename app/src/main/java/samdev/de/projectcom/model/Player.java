@@ -27,30 +27,18 @@ public class Player {
     public String getPlayerId(){
         return playerId;
     }
-    public void setPlayerId(String playerId){
-        this.playerId = playerId;
-    }
 
     public String getPlayerName(){
         return playerName;
-    }
-    public void setPlayerName(String playerName){
-        this.playerName = playerName;
     }
 
     public String getPlayerTeam(){
         return playerTeam;
     }
-    public void setPlayerTeam(String playerTeam){
-        this.playerTeam = playerTeam;
-    }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        return result;
+        return id;
     }
 
     @Override
@@ -67,6 +55,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player [id=" + id + ", playerId=" + playerId + ", playerName=" + playerName + ", playerTeam=" + playerTeam + "]";
+        return String.format("Player [id=%d, playerId=%s, playerName=%s, playerTeam=%s]", id, playerId, playerName, playerTeam);
     }
 }
