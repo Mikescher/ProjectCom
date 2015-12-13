@@ -1,4 +1,4 @@
-package samdev.de.projectcom.activitys;
+package samdev.de.projectcom.view.activities;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,10 +20,10 @@ import android.widget.RelativeLayout;
 
 import java.util.List;
 
-import samdev.de.projectcom.objects.Player;
+import samdev.de.projectcom.model.Player;
 import samdev.de.projectcom.R;
-import samdev.de.projectcom.SharedPreference;
-import samdev.de.projectcom.adapter.PlayerListAdapter;
+import samdev.de.projectcom.model.SharedPreference;
+import samdev.de.projectcom.view.adapters.PlayerListAdapter;
 
 public class PlayerActivity extends AppCompatActivity {
 

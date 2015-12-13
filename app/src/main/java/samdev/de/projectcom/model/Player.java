@@ -1,4 +1,4 @@
-package samdev.de.projectcom.objects;
+package samdev.de.projectcom.model;
 
 /**
  * Created by cYa on 12.12.2015.
@@ -8,10 +8,6 @@ public class Player {
     private String playerId;
     private String playerName;
     private String playerTeam;
-
-    public Player(){
-        super();
-    }
 
     public Player(int id, String playerId, String playerName, String playerTeam){
         super();
@@ -66,14 +62,11 @@ public class Player {
         if (getClass() != obj.getClass())
             return false;
         Player other = (Player) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Override
     public String toString() {
-        return "Player [id=" + id + ", playerId=" + playerId + ", playerName="
-                + playerName + ", playerTeam=" + playerTeam + "]";
+        return "Player [id=" + id + ", playerId=" + playerId + ", playerName=" + playerName + ", playerTeam=" + playerTeam + "]";
     }
 }

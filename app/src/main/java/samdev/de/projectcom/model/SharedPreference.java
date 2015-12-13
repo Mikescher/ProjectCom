@@ -1,4 +1,4 @@
-package samdev.de.projectcom;
+package samdev.de.projectcom.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import samdev.de.projectcom.objects.Player;
+import samdev.de.projectcom.model.Player;
 
 /**
  * Created by cYa on 12.12.2015.
@@ -43,7 +43,7 @@ public class SharedPreference {
     public void addPlayer(Context context, Player player) {
         List<Player> players = getPlayers(context);
         if (players == null)
-            players = new ArrayList<Player>();
+            players = new ArrayList<>();
         players.add(player);
         savePlayers(context, players);
     }
@@ -70,7 +70,7 @@ public class SharedPreference {
                     Player[].class);
 
             players = Arrays.asList(playerItems);
-            players = new ArrayList<Player>(players);
+            players = new ArrayList<>(players);
         } else
             return null;
 

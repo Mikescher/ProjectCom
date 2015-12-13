@@ -1,4 +1,4 @@
-package samdev.de.projectcom.adapter;
+package samdev.de.projectcom.view.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import samdev.de.projectcom.objects.Player;
+import samdev.de.projectcom.model.Player;
 import samdev.de.projectcom.R;
-import samdev.de.projectcom.SharedPreference;
+import samdev.de.projectcom.model.SharedPreference;
 
 /**
  * Created by cYa on 12.12.2015.
@@ -24,7 +24,7 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
     SharedPreference sharedPreference;
 
     public PlayerListAdapter(Context context, List<Player> players) {
-        super(context, R.layout.player__list_item, players);
+        super(context, R.layout.player_list_item, players);
         this.context = context;
         this.players = players;
         sharedPreference = new SharedPreference();
@@ -54,11 +54,11 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.player__list_item, null);
+            convertView = inflater.inflate(R.layout.player_list_item, null);
             holder = new ViewHolder();
             holder.playerIdTxt = (TextView) convertView
                     .findViewById(R.id.txt_pl_id);
@@ -71,10 +71,10 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        Player player = (Player) getItem(position);
-        holder.playerIdTxt.setText("Player Id: " + player.getPlayerId());
-        holder.playerNameTxt.setText("Name: " + player.getPlayerName());
-        holder.playerTeamTxt.setText("Team: " + player.getPlayerTeam());
+        Player player = getItem(position);
+        holder.playerIdTxt.setText(String.format("Player Id: %s", player.getPlayerId()));
+        holder.playerNameTxt.setText(String.format("Name: %s", player.getPlayerName()));
+        holder.playerTeamTxt.setText(String.format("Team: %s", player.getPlayerTeam()));
 
 
         return convertView;

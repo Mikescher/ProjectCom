@@ -1,4 +1,4 @@
-package samdev.de.projectcom.activitys;
+package samdev.de.projectcom.view.activities;
 
 
 import android.content.Intent;
@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import samdev.de.projectcom.R;
-import samdev.de.projectcom.activitys.PlayerActivity;
 
 
 public class MainActivity extends ActionBarActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
         }
 
         //mSelectedId = savedInstanceState == null ? R.id.navigation_item_1 : savedInstanceState.getInt(SELECTED_ITEM_ID);
-        // lassen wir es vorerst immer auf dem Hauptscreen sein
+        // stays on the main screen for now
         navigate(mSelectedId);
 
     }
@@ -111,16 +110,16 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
     }
 
     public void navigate(int mSelectedId){
-        Intent intent = null;
+        Intent intent;
         if(mSelectedId == R.id.navigation_item_1)
         {
             mDrawerlayout.closeDrawer(GravityCompat.START);
             intent = new Intent(this, PlayerActivity.class);
             startActivity(intent);
         }
-        if(mSelectedId == R.id.navigation_item_2)
+        else if(mSelectedId == R.id.navigation_item_2)
         {
-
+            //TODO
         }
     }
 
