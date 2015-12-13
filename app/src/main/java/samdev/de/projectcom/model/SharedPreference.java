@@ -11,9 +11,6 @@ import java.util.List;
 
 import samdev.de.projectcom.model.Player;
 
-/**
- * Created by cYa on 12.12.2015.
- */
 public class SharedPreference {
 
     public static final String PREFS_NAME = "Player_Pref";
@@ -24,20 +21,15 @@ public class SharedPreference {
     }
 
     public void savePlayers(Context context, List<Player> favorites){
-        SharedPreferences settings;
-        SharedPreferences.Editor editor;
-
-        settings = context.getSharedPreferences(PREFS_NAME,
-                Context.MODE_PRIVATE);
-        editor = settings.edit();
+        SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
 
         Gson gson = new Gson();
         String jsonFavorites = gson.toJson(favorites);
 
         editor.putString(ALL_PLAYER, jsonFavorites);
 
-        editor.commit();
-
+        editor.apply();
     }
 
     public void addPlayer(Context context, Player player) {
@@ -60,14 +52,12 @@ public class SharedPreference {
         SharedPreferences settings;
         List<Player> players;
 
-        settings = context.getSharedPreferences(PREFS_NAME,
-                Context.MODE_PRIVATE);
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         if (settings.contains(ALL_PLAYER)) {
             String jsonFavorites = settings.getString(ALL_PLAYER, null);
             Gson gson = new Gson();
-            Player[] playerItems = gson.fromJson(jsonFavorites,
-                    Player[].class);
+            Player[] playerItems = gson.fromJson(jsonFavorites, Player[].class);
 
             players = Arrays.asList(playerItems);
             players = new ArrayList<>(players);

@@ -1,8 +1,5 @@
 package samdev.de.projectcom.model;
 
-/**
- * Created by cYa on 12.12.2015.
- */
 public class Player {
     private int id;
     private String playerId;

@@ -1,6 +1,5 @@
 package samdev.de.projectcom.view.activities;
 
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -17,14 +16,14 @@ import android.view.MenuItem;
 
 import samdev.de.projectcom.R;
 
-
 public class MainActivity extends ActionBarActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String SELECTED_ITEM_ID = "selected";
     private static final String FIRST_TIME = "first_time";
+    
     private Toolbar toolbar;
-    private NavigationView mDrawer;
-    private DrawerLayout mDrawerlayout;
+    private NavigationView navigationDrawer;
+    private DrawerLayout drawerLayout;
     ActionBarDrawerToggle mDrawerToggle;
     private int mSelectedId;
     private boolean mUserSawDrawer = false;
@@ -38,12 +37,12 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        mDrawer = (NavigationView) findViewById(R.id.main_drawer);
-        mDrawer.setNavigationItemSelectedListener(this);
-        mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerlayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+        navigationDrawer = (NavigationView) findViewById(R.id.main_drawer);
+        navigationDrawer.setNavigationItemSelectedListener(this);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
-        mDrawerlayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
         if(!didUserSeeDrawer()){
@@ -96,11 +95,11 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
     }
 
     private void showDrawer(){
-        mDrawerlayout.openDrawer(GravityCompat.START);
+        drawerLayout.openDrawer(GravityCompat.START);
     }
 
     private void hideDrawer(){
-        mDrawerlayout.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     private void markDrawerSeen(){
@@ -113,7 +112,7 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
         Intent intent;
         if(mSelectedId == R.id.navigation_item_1)
         {
-            mDrawerlayout.closeDrawer(GravityCompat.START);
+            drawerLayout.closeDrawer(GravityCompat.START);
             intent = new Intent(this, PlayerActivity.class);
             startActivity(intent);
         }
@@ -139,8 +138,8 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
     }
 
     public void onBackPressed(){
-        if(mDrawerlayout.isDrawerOpen(GravityCompat.START)){
-            mDrawerlayout.closeDrawer(GravityCompat.START);
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
             super.onBackPressed();

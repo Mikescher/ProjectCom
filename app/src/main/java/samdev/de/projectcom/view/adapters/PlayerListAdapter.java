@@ -1,5 +1,6 @@
 package samdev.de.projectcom.view.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,22 +13,16 @@ import java.util.List;
 
 import samdev.de.projectcom.model.Player;
 import samdev.de.projectcom.R;
-import samdev.de.projectcom.model.SharedPreference;
 
-/**
- * Created by cYa on 12.12.2015.
- */
 public class PlayerListAdapter extends ArrayAdapter<Player> {
 
-    private Context context;
-    List<Player> players;
-    SharedPreference sharedPreference;
+    private final Context context;
+    private final List<Player> players;
 
     public PlayerListAdapter(Context context, List<Player> players) {
         super(context, R.layout.player_list_item, players);
         this.context = context;
         this.players = players;
-        sharedPreference = new SharedPreference();
     }
 
     private class ViewHolder {
@@ -52,6 +47,7 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
         return 0;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
