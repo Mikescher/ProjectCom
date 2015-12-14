@@ -180,8 +180,15 @@ public class PlayerActivity extends AppCompatActivity {
             List<Player> players;
             players = sharedPreference.getPlayers(PlayerActivity.this);
             Player lastPlayer;
-            int size = players.size();
+            int size;
+            if(players == null){
+                size = 0;
+            }
+            else {
+                size = players.size();
+            }
             int newId;
+
             if(size == 0){
                 newId = 1;
             }
