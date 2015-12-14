@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import samdev.de.projectcom.R;
+import samdev.de.projectcom.view.fragments.NavigationDrawerFragment;
 
 public class MainActivity extends ActionBarActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,15 +38,19 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        navigationDrawer = (NavigationView) findViewById(R.id.main_drawer);
-        navigationDrawer.setNavigationItemSelectedListener(this);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+        NavigationDrawerFragment drawerFragment =
+                (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        drawerLayout.setDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
+//        navigationDrawer = (NavigationView) findViewById(R.id.main_drawer);
+//        navigationDrawer.setNavigationItemSelectedListener(this);
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
-        if(!didUserSeeDrawer()){
+//        drawerLayout.setDrawerListener(mDrawerToggle);
+//        mDrawerToggle.syncState();
+
+/*        if(!didUserSeeDrawer()){
             showDrawer();
             markDrawerSeen();
         }
@@ -57,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements NavigationView.On
         //mSelectedId = savedInstanceState == null ? R.id.navigation_item_1 : savedInstanceState.getInt(SELECTED_ITEM_ID);
         // stays on the main screen for now
         navigate(mSelectedId);
-
+*/
     }
 
 
