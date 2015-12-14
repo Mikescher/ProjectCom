@@ -171,7 +171,7 @@ public class PlayerActivity extends AppCompatActivity {
     }
     private void addPlayer(String playerId){
 
-        if(playerId == "") {
+        if(playerId.isEmpty()) {
             Snackbar.make(mRoot,"Ungültige Eingabe", Snackbar.LENGTH_LONG)
                     .show();
         }
@@ -193,7 +193,7 @@ public class PlayerActivity extends AppCompatActivity {
                 newId = 1;
             }
             else{
-                lastPlayer = (Player) players.get(size - 1);
+                lastPlayer = players.get(size - 1);
                 newId = lastPlayer.getId() + 1;
             }
 
