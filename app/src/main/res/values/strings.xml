@@ -22,4 +22,11 @@
     <string name="alertbuttoncancel">Abbrechen</string>
     <string name="alertplayeradd">test</string>
     <string name="action_clearlist">Alle Id`s löschen</string>
+
+
+    <!--StartActivity-->
+    <string name="title_activity_start">Erste Schritte</string>
+    <string name="enterPlayerId">Bitte gebe deine Spieler Id ein:</string>
+
+
 </resources>

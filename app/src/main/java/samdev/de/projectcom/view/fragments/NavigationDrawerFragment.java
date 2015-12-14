@@ -24,6 +24,7 @@ import java.util.List;
 
 import samdev.de.projectcom.R;
 import samdev.de.projectcom.model.Information;
+import samdev.de.projectcom.view.activities.PlayerActivity;
 import samdev.de.projectcom.view.adapters.RViewAdapter;
 
 
@@ -71,8 +72,7 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 if(position == 0){
-
-                    getActivity().finish();
+                    startActivity(new Intent(getActivity(), PlayerActivity.class));
                 } else if (position == 1){
 
                     getActivity().finish();

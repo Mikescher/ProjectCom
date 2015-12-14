@@ -28,10 +28,19 @@ public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
     ActionBarDrawerToggle mDrawerToggle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean firstStart = SP.getBoolean("firstStart", true);
+
+        if(firstStart)
+        {
+            startActivity(new Intent(this, StartActivity.class));
+        }
 
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -42,9 +51,8 @@ public class MainActivity extends ActionBarActivity {
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
 
-
-        TextView textView = (TextView) findViewById(R.id.textdrawerheader1);
-        textView.setText("Armin");
+        TextView textView = (TextView) findViewById(R.id.textDrawerHeader1);
+        textView.setText("Armin\nBlackForestBytes");
 
     }
 
