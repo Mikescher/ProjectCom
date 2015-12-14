@@ -20,14 +20,14 @@ public class SharedPreference {
         super();
     }
 
-    public void savePlayers(Context context, List<Player> favorites){
+    public void savePlayers(Context context, List<Player> players){
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
 
         Gson gson = new Gson();
-        String jsonFavorites = gson.toJson(favorites);
+        String jsonPlayers = gson.toJson(players);
 
-        editor.putString(ALL_PLAYER, jsonFavorites);
+        editor.putString(ALL_PLAYER, jsonPlayers);
 
         editor.apply();
     }
@@ -41,10 +41,10 @@ public class SharedPreference {
     }
 
     public void removePlayer(Context context, Player player) {
-        ArrayList<Player> favorites = getPlayers(context);
-        if (favorites != null) {
-            favorites.remove(player);
-            savePlayers(context, favorites);
+        ArrayList<Player> players = getPlayers(context);
+        if (players != null) {
+            players.remove(player);
+            savePlayers(context, players);
         }
     }
 
@@ -55,9 +55,9 @@ public class SharedPreference {
         settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         if (settings.contains(ALL_PLAYER)) {
-            String jsonFavorites = settings.getString(ALL_PLAYER, null);
+            String jsonPlayers = settings.getString(ALL_PLAYER, null);
             Gson gson = new Gson();
-            Player[] playerItems = gson.fromJson(jsonFavorites, Player[].class);
+            Player[] playerItems = gson.fromJson(jsonPlayers, Player[].class);
 
             players = Arrays.asList(playerItems);
             players = new ArrayList<>(players);
