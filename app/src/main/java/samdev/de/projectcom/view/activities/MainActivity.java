@@ -13,6 +13,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import samdev.de.projectcom.R;
 import samdev.de.projectcom.view.fragments.NavigationDrawerFragment;
@@ -37,6 +40,11 @@ public class MainActivity extends ActionBarActivity {
         NavigationDrawerFragment drawerFragment =
                 (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
+
+
+
+        TextView textView = (TextView) findViewById(R.id.textdrawerheader1);
+        textView.setText("Armin");
 
     }
 

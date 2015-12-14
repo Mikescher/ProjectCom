@@ -5,16 +5,36 @@
     android:background="#FFF"
     tools:context="samdev.de.mvuprobelokalapp.NavigationDrawerFragment">
 
+    <ImageButton
+        android:id="@+id/imageDrawerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:background="@drawable/nav_drawer_header"
+        />
+    <TextView
+        android:id="@+id/textDrawerHeader1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_alignRight="@+id/imageDrawerButton"
+        android:layout_alignEnd="@+id/imageDrawerButton"
+        android:textColor="#ffffff" />
+
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"></TextView>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/drawerList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageDrawerButton"
+        >
 
 
     </android.support.v7.widget.RecyclerView>
