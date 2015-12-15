@@ -37,7 +37,7 @@ public class StartActivity extends AppCompatActivity {
 
         final Button btnStart = (Button) findViewById(R.id.buttonstart);
         final EditText userInput = (EditText) findViewById(R.id.startInputId);
-        mRoot = (RelativeLayout) findViewById(R.id.root_activity_player);
+        mRoot = (RelativeLayout) findViewById(R.id.root_activity_start);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
