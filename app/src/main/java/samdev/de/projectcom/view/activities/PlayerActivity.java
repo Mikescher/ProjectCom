@@ -3,6 +3,9 @@ package samdev.de.projectcom.view.activities;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
@@ -14,10 +17,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -71,7 +77,19 @@ public class PlayerActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+        playerList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+        playerList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,final int position, long id) {
 
+                SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                SharedPreferences.Editor editor = SP.edit();
+                editor.putInt("setplayer", position);
+                editor.commit();
+
+                setList();
+            }
+        });
 
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -90,6 +108,8 @@ public class PlayerActivity extends AppCompatActivity {
 
         setList();
     }
+
+
 
     private View.OnClickListener mFabClickListener = new View.OnClickListener(){
         public void onClick(View v){

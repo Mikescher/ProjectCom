@@ -20,7 +20,8 @@
         android:footerDividersEnabled="false"
         android:padding="10dp"
         android:layout_below="@+id/app_bar"
-        android:scrollbarStyle="outsideOverlay" >
+        android:scrollbarStyle="outsideOverlay"
+        android:choiceMode="singleChoice">
     </ListView>
 
 
