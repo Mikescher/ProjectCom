@@ -17,10 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:padding="16dp"
-        android:gravity="center_vertical"
-        style="@style/TextAppearance.AppCompat.Title"
         android:layout_alignRight="@+id/imageDrawerButton"
-        android:layout_alignEnd="@+id/imageDrawerButton"
+        android:layout_alignBottom="@+id/imageDrawerButton"
         android:textColor="#ffffff" />
 
     <!-- TODO: Update blank fragment layout -->

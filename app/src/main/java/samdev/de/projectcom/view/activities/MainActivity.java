@@ -17,7 +17,11 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 import samdev.de.projectcom.R;
+import samdev.de.projectcom.model.Player;
+import samdev.de.projectcom.model.SharedPreference;
 import samdev.de.projectcom.view.fragments.NavigationDrawerFragment;
 
 public class MainActivity extends ActionBarActivity {
@@ -51,8 +55,14 @@ public class MainActivity extends ActionBarActivity {
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
 
+        // Set Player in the Header of the Navigation Drawer
+        int setPlayerPosition= SP.getInt("setplayer",0);
+        SharedPreference sharedPreference = new SharedPreference();
+        List<Player> players;
+        players = sharedPreference.getPlayers(MainActivity.this);
+        Player player = players.get(setPlayerPosition);
         TextView textView = (TextView) findViewById(R.id.textDrawerHeader1);
-        textView.setText("Armin\nBlackForestBytes");
+        textView.setText(player.getPlayerId() + "\n" + player.getPlayerName() + "\n" + player.getPlayerTeam());
 
     }
 
