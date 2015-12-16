@@ -56,13 +56,16 @@ public class MainActivity extends ActionBarActivity {
 
 
         // Set Player in the Header of the Navigation Drawer
-        int setPlayerPosition= SP.getInt("setplayer",0);
+
+        int setPlayerPosition = SP.getInt("setplayer", 0);
         SharedPreference sharedPreference = new SharedPreference();
         List<Player> players;
         players = sharedPreference.getPlayers(MainActivity.this);
-        Player player = players.get(setPlayerPosition);
-        TextView textView = (TextView) findViewById(R.id.textDrawerHeader1);
-        textView.setText(player.getPlayerId() + "\n" + player.getPlayerName() + "\n" + player.getPlayerTeam());
+        if(players != null) {
+            Player player = players.get(setPlayerPosition);
+            TextView textView = (TextView) findViewById(R.id.textDrawerHeader1);
+            textView.setText(player.getPlayerId() + "\n" + player.getPlayerName() + "\n" + player.getPlayerTeam());
+        }
 
     }
 
