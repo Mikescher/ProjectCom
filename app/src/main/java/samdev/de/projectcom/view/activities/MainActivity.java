@@ -61,10 +61,10 @@ public class MainActivity extends ActionBarActivity {
         SharedPreference sharedPreference = new SharedPreference();
         List<Player> players;
         players = sharedPreference.getPlayers(MainActivity.this);
-        if(players != null) {
+        if(players != null && players.size() > 0) {
             Player player = players.get(setPlayerPosition);
             TextView textView = (TextView) findViewById(R.id.textDrawerHeader1);
-            textView.setText(player.getPlayerId() + "\n" + player.getPlayerName() + "\n" + player.getPlayerTeam());
+            textView.setText(player.getPlayerName() + "\n" + player.getPlayerTeam());
         }
 
     }
