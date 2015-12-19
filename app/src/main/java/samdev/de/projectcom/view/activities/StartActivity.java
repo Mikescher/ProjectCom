@@ -8,12 +8,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -47,6 +49,23 @@ public class StartActivity extends AppCompatActivity {
                 addPlayer(mUserInput);
 
 
+            }
+        });
+
+        // it fucking dont work!!!!!!!!!!!!!!!!
+        final EditText edittext = (EditText) findViewById(R.id.startInputId);
+        edittext.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    String mUserInput = userInput.getText().toString();
+
+                    addPlayer(mUserInput);
+                    return true;
+                }
+                return false;
             }
         });
     }
